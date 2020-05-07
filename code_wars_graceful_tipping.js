@@ -18,6 +18,10 @@ And so on...
 Good luck!
 */
 
-function gracefulTipping(bill) {
-  // your code here
+const gracefulTipping = (bill) => {
+  let tip = bill * .15;
+  let total = Math.ceil(bill + tip);
+  if(total < 10) {
+    return Math.ceil(total);
+  }
 }
