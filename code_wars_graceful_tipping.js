@@ -23,5 +23,25 @@ const gracefulTipping = (bill) => {
   let total = Math.ceil(bill + tip);
   if(total < 10) {
     return Math.ceil(total);
+  } else {
+    let divisorStr = '5';
+    let divisor = 0;
+    let totalStr = total.toString();
+    if(total >= 100) {
+      for(let i = 1; i < totalStr.length; i++) {
+        if(totalStr[i] !== '.') {
+          divisorStr += '0';
+        }
+        if(totalStr[i] === '.') {
+          break;
+        }
+      } 
+    }
+    divisor += Number(divisorStr);
+    console.log('here is divisor: ' + divisor);
+    while(total % divisor !== 0) {
+      total += 1;
+    }
+    return total;
   }
 }
